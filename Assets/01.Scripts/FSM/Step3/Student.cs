@@ -1,4 +1,4 @@
-namespace UnityFunctions.FSM.Step2
+namespace UnityFunctions.FSM.Step3
 {
     using System;
     using System.Collections;
@@ -15,8 +15,8 @@ namespace UnityFunctions.FSM.Step2
         private int totalScore;
         private Locations currentLocation;
 
-        private State[] states;
-        private State currentState;
+        private State<Student>[] states;
+        private State<Student> currentState;
 
         public int Knowledge
         {
@@ -50,7 +50,7 @@ namespace UnityFunctions.FSM.Step2
 
             gameObject.name = $"{ID:D2}_Student_{name}";
 
-            states = new State[5];
+            states = new State<Student>[5];
             states[(int)StudentStates.RestAndSleep] = new StudentOwnedState.RestAndSleep();
             states[(int)StudentStates.StudyHard] = new StudentOwnedState.StudyHard();
             states[(int)StudentStates.TakeAExam] = new StudentOwnedState.TakeAExam();
