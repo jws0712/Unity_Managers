@@ -198,6 +198,5 @@ namespace UnityFunctions.FSM.Step3.StudentOwnedState
             entitys.PrintText("술집 나감");
         }
     }
-
 }
 

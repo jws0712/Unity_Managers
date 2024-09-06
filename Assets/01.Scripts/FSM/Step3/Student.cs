@@ -16,7 +16,7 @@ namespace UnityFunctions.FSM.Step3
         private Locations currentLocation;
 
         private State<Student>[] states;
-        private State<Student> currentState;
+        private StateMechine<Student> stateMachine;
 
         public int Knowledge
         {
@@ -57,7 +57,8 @@ namespace UnityFunctions.FSM.Step3
             states[(int)StudentStates.PlayeAGame] = new StudentOwnedState.PlayAGame();
             states[(int)StudentStates.HitTheBottle] = new StudentOwnedState.HitTheBottle();
 
-            ChangeState(StudentStates.RestAndSleep);
+            stateMachine = new StateMechine<Student>();
+            stateMachine.Setup(this, states[(int)StudentStates.RestAndSleep]);
 
             knowledge = 0;
             stress = 0;
@@ -69,23 +70,12 @@ namespace UnityFunctions.FSM.Step3
 
         public override void Updated()
         {
-            if(currentState != null)
-            {
-                currentState.Execute(this);
-            }
+            stateMachine.Eexcute();
         }
 
         public void ChangeState(StudentStates newState)
         {
-            if (states[(int)newState] == null) return;
-
-            if(currentState != null)
-            {
-                currentState.Exit(this);
-            }
-
-            currentState = states[(int)newState];
-            currentState.Enter(this);
+            stateMachine.ChangeState(states[(int)newState]);
         }
     }
 }

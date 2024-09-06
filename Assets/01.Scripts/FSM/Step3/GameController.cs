@@ -12,6 +12,9 @@ namespace UnityFunctions.FSM.Step3
         [SerializeField] private string[] arrayStudents;
         [SerializeField] private GameObject studentPrefab;
 
+        [SerializeField] private string[] arrayUnemployeds;
+        [SerializeField] private GameObject unemployedPrefab;
+
         private List<BaseGameEntity> entitys;
 
         public static bool IsGameStop { set; get; } = false;
@@ -27,7 +30,16 @@ namespace UnityFunctions.FSM.Step3
                 entity.Setup(arrayStudents[i]);
 
                 entitys.Add(entity);
-            }   
+            }
+
+            for (int i = 0; i < arrayUnemployeds.Length; ++i)
+            {
+                GameObject clone = Instantiate(unemployedPrefab);
+                Unemployed entity = clone.GetComponent<Unemployed>();
+                entity.Setup(arrayUnemployeds[i]);
+
+                entitys.Add(entity);
+            }
         }
 
         private void Update()

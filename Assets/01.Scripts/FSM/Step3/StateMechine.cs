@@ -8,17 +8,26 @@ namespace UnityFunctions.FSM.Step3
     {
         private T ownerEntity;
         private State<T> currentState;
+        private State<T> previousState;
+        private State<T> globalState;
 
         public void Setup(T owner, State<T> entryState)
         {
             ownerEntity = owner;
             currentState = null;
+            previousState = null;
+            globalState = null;
 
             ChangeState(entryState);
         }
 
         public void Eexcute()
         {
+            if(globalState != null)
+            {
+                globalState.Execute(ownerEntity);
+            }
+
             if(currentState != null)
             {
                 currentState.Execute(ownerEntity);
@@ -31,11 +40,23 @@ namespace UnityFunctions.FSM.Step3
 
             if(currentState != null)
             {
+                previousState = currentState;
+
                 currentState.Exit(ownerEntity);
             }
 
             currentState = newState;
             currentState.Enter(ownerEntity);
+        }
+
+        public void SetGlobalState(State<T> newState)
+        {
+            globalState = newState;
+        }
+
+        public void RevertToPreviousState()
+        {
+            ChangeState(previousState);
         }
     }
 }
