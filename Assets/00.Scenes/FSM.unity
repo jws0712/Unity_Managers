@@ -519,6 +519,61 @@ MonoBehaviour:
   - "\uC804\uC6B0\uC131"
   studentPrefab: {fileID: 3005944116203394238, guid: 8a4751153bc5db6409d7a670ee8a5f8c,
     type: 3}
+--- !u!1 &945856226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945856228}
+  - component: {fileID: 945856229}
+  m_Layer: 0
+  m_Name: FSM_Step4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &945856228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945856226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &945856229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945856226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb60c0280bb11bc4face440b62d00c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayStudents:
+  - "\uACE0\uBC15\uC0AC"
+  - "\uC774\uB984\uC5C6"
+  studentPrefab: {fileID: 5238301781789512991, guid: 57eeea484b7b4df4fad08371e9c62af4,
+    type: 3}
+  arrayUnemployeds:
+  - "\uD7341"
+  - "\uD7342"
+  - "\uD7343"
+  unemployedPrefab: {fileID: 1198641386830298515, guid: b4a0d150f0b2864418b7be1002789343,
+    type: 3}
 --- !u!1 &1105464038
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1969434959
 Transform:
   m_ObjectHideFlags: 0
@@ -629,3 +684,4 @@ SceneRoots:
   - {fileID: 1105464040}
   - {fileID: 928101103}
   - {fileID: 1969434959}
+  - {fileID: 945856228}
