@@ -8,26 +8,26 @@ using UnityEngine;
 //1. Json(택배)를 다시 원래의 코드로 바꾸는 방법
 //제이슨(택배) -> 조립도 -> 클래스(코드)
 
-class Data
-{
-    public string nickName;
-    public int level;
-    public int coin = 100; //초깃값 설정가능
-    public bool skill;
-    //기타 등등...
-}
+//class Data
+//{
+//    public string nickName;
+//    public int level;
+//    public int coin = 100; //초깃값 설정가능
+//    public bool skill;
+//    //기타 등등...
+//}
 
-public class TestJSON : MonoBehaviour
-{
-    Data player = new Data() { nickName = "전우성", level = 50, coin = 200, skill = false};
+//public class TestJSON : MonoBehaviour
+//{
+//    Data player = new Data() { nickName = "전우성", level = 50, coin = 200, skill = false};
 
-    void Start()
-    {
-        //player.nickName = "전우성";
+//    void Start()
+//    {
+//        //player.nickName = "전우성";
 
-        //2. Json으로 변환
-        string jasonData = JsonUtility.ToJson(player);
+//        //2. Json으로 변환
+//        string jasonData = JsonUtility.ToJson(player);
 
-        Data player2 = JsonUtility.FromJson<Data>(jasonData);
-    }
-}
+//        Data player2 = JsonUtility.FromJson<Data>(jasonData);
+//    }
+//}
