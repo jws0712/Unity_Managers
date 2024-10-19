@@ -849,7 +849,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1945407493}
         m_TargetAssemblyTypeName: TestJsonButton, Assembly-CSharp
-        m_MethodName: SaveButton
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
