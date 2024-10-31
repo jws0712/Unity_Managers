@@ -55,10 +55,20 @@ public class DataManager : MonoBehaviour
     //데이터 불러오기
     public void Load()
     {
-        string data = File.ReadAllText(path + filename);
-        gameData = JsonConvert.DeserializeObject<Data>(data);
+        //해당 경로에 파일이 없을때 ==> 최초 접속
+        if(File.Exists(path + filename))
+        {
+            string data = File.ReadAllText(path + filename);
+            gameData = JsonConvert.DeserializeObject<Data>(data);
+        }
+        else
+        {
+            //저장하기
+            Save();
+        }
     }
 
+    //저장되있었던 데이터 리셋
     public void ResetData()
     {
         gameData = resetGameData;

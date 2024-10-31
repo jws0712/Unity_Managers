@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.Scenes/FSM/FSM.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/00.Scenes/FadeManager/FadeTest/Test_1.unity
+    guid: c45d335740c72cf4c999f7ae18bdd0d2
+  - enabled: 1
+    path: Assets/00.Scenes/FadeManager/FadeTest/Test_2.unity
+    guid: e10d76d345d6ccd4885f4a7befeed602
   m_configObjects: {}
