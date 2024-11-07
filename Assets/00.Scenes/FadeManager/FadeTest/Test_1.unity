@@ -740,12 +740,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &1088435052 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6295475327498682934, guid: 4ed538302f599654eb68db31df21c7ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 1835206428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833099901
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,16 +872,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2132535655895373537, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2853311322362148872, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5834488039618743171, guid: 4ed538302f599654eb68db31df21c7ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,31 +922,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6295475327498682934, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729311387542811708, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729311387542811708, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 2500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508496238520184045, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697869065313669309, guid: 4ed538302f599654eb68db31df21c7ff,
-        type: 3}
-      propertyPath: fadeCanvas
-      value: 
-      objectReference: {fileID: 1088435052}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

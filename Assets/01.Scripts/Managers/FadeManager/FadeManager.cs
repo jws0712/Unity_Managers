@@ -7,7 +7,7 @@ public class FadeManager : MonoBehaviour
 {
     public static FadeManager instance;
 
-    [SerializeField] private Canvas fadeCanvas = null;
+    [SerializeField] private GameObject fadeCanvas = null;
 
     private Animator anim = null;
     private AnimationClip animationClip = null;
@@ -27,7 +27,7 @@ public class FadeManager : MonoBehaviour
     //페이드 인
     public void FadeIn(Action function)
     {
-        fadeCanvas.sortingOrder = 999;
+        fadeCanvas.gameObject.SetActive(true);
         anim.SetTrigger("FadeIn");
         StartCoroutine(Co_FadeIn(function));
     }
@@ -35,7 +35,7 @@ public class FadeManager : MonoBehaviour
     //페이드 아웃
     public void FadeOut(Action function)
     {
-        fadeCanvas.sortingOrder = 999;
+        fadeCanvas.gameObject.SetActive(true);
         anim.SetTrigger("FadeOut");
         StartCoroutine(Co_FadeOut(function));
     }
@@ -47,7 +47,7 @@ public class FadeManager : MonoBehaviour
         {
             function();
         }
-        fadeCanvas.sortingOrder = -1;
+        fadeCanvas.gameObject.SetActive(false);
         StopAllCoroutines();
     }
     private IEnumerator Co_FadeIn(Action function)
@@ -55,7 +55,7 @@ public class FadeManager : MonoBehaviour
         yield return new WaitForSeconds(GetClipTime("FadeIn"));
         if (function != null)
         {
-           function();
+            function();
         }
         StopAllCoroutines();
     }
@@ -66,7 +66,7 @@ public class FadeManager : MonoBehaviour
 
         foreach (AnimationClip clip in clips)
         {
-            if(clip.name == clipName)
+            if (clip.name == clipName)
             {
                 animationClip = clip;
                 return clip.length;
