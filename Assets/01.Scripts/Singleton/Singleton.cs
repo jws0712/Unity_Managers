@@ -1,4 +1,4 @@
-namespace Manager.Game
+namespace DesignPetton.Singleton
 {
     //System
     using System.Collections;
