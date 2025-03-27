@@ -17,7 +17,15 @@ public class Bullet : MonoBehaviour
     {
         _Direction = dir;
         // 5초가 지난 후 총알을 파괴
+        //Destroy(gameObject, 5f);
+
         Invoke("DestroyObject", 5f);
+    }
+
+    //오브젝트를 풀안에 넣어줌
+    public void SetManagedPool(IObjectPool<Bullet> pool)
+    {
+        _ManagedPool = pool;
     }
 
     // Update is called once per frame
@@ -29,6 +37,6 @@ public class Bullet : MonoBehaviour
     //오브젝트를 릴리즈 해줌 Destory함수 대용
     public void DestroyObject()
     {
-        ObjectPoolManager.Instance.ReturnObject(gameObject);
+        _ManagedPool.Release(this);
     }
 }
