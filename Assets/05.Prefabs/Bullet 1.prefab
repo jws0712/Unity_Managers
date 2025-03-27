@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7403486042952946470}
   - component: {fileID: -4231979059020774031}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ebef44b5873b8d14f8e0524a718599e6, type: 2}
+  - {fileID: 2100000, guid: 4a3a66c49d6d68c44be0e1a22a535de1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

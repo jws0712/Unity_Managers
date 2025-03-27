@@ -8,6 +8,8 @@ public class Shooter : MonoBehaviour
 {
     [SerializeField]
     private GameObject _BulletPrefab;
+    [SerializeField]
+    private GameObject _BulletPrefab2;
 
     private Camera _MainCam;
 
@@ -15,7 +17,7 @@ public class Shooter : MonoBehaviour
 
     private void Awake()
     {
-        _Pool = new ObjectPool<Bullet>(CreatBullet, OnGetBullet, OnReleaseBullet, OnDestroyBullet, maxSize:20);
+        //_Pool = new ObjectPool<Bullet>(CreatBullet, OnGetBullet, OnReleaseBullet, OnDestroyBullet, maxSize:20);
     }
 
     // Start is called before the first frame update
@@ -35,32 +37,48 @@ public class Shooter : MonoBehaviour
                 var direction = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
                 // 총알을 새로 생성해서 사용
                 //var bullet = Instantiate(_BulletPrefab, transform.position + direction.normalized, Quaternion.identity).GetComponent<Bullet>();
-                var bullet = _Pool.Get();
+                //var bullet = _Pool.Get();
+                var bullet = ObjectPoolManager.Instance.GetPoolObject(_BulletPrefab.name);
                 bullet.transform.position = transform.position + direction.normalized;
-                bullet.Shoot(direction.normalized);
+                bullet.GetComponent<Bullet>().Shoot(direction.normalized);
+            }
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit hitResult;
+            if (Physics.Raycast(_MainCam.ScreenPointToRay(Input.mousePosition), out hitResult))
+            {
+                var direction = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
+                // 총알을 새로 생성해서 사용
+                //var bullet = Instantiate(_BulletPrefab, transform.position + direction.normalized, Quaternion.identity).GetComponent<Bullet>();
+                //var bullet = _Pool.Get();
+                var bullet = ObjectPoolManager.Instance.GetPoolObject(_BulletPrefab2.name);
+                bullet.transform.position = transform.position + direction.normalized;
+                bullet.GetComponent<Bullet>().Shoot(direction.normalized);
             }
         }
     }
 
-    private Bullet CreatBullet()
-    {
-        Bullet bullet = Instantiate(_BulletPrefab).GetComponent<Bullet>();
-        bullet.SetManagedPool(_Pool);
-        return bullet;
-    }
+    //private Bullet CreatBullet()
+    //{
+    //    Bullet bullet = Instantiate(_BulletPrefab).GetComponent<Bullet>();
+    //    bullet.SetManagedPool(_Pool);
+    //    return bullet;
+    //}
 
-    private void OnGetBullet(Bullet bullet)
-    {
-        bullet.gameObject.SetActive(true);
-    }
+    //private void OnGetBullet(Bullet bullet)
+    //{
+    //    bullet.gameObject.SetActive(true);
+    //}
 
-    private void OnReleaseBullet(Bullet bullet)
-    {
-        bullet.gameObject.SetActive(false);
-    }
+    //private void OnReleaseBullet(Bullet bullet)
+    //{
+    //    bullet.gameObject.SetActive(false);
+    //}
 
-    private void OnDestroyBullet(Bullet bullet)
-    {
-        Destroy(bullet.gameObject);
-    }
+    //private void OnDestroyBullet(Bullet bullet)
+    //{
+    //    Destroy(bullet.gameObject);
+    //}
 }
